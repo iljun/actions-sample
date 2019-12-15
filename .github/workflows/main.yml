@@ -11,13 +11,15 @@ jobs:
       - name: checkout
         uses: actions/checkout@master
       - name: gradle build
+        with:
+          gradle-version: 5.6.3
         run: ./gradlew build
       - name: docker build
         run: docker build . -t docker.pkg.github.com/iljun/actions-sample/github-actions:0.0.1
       - name: docker publish
         uses: elgohr/Publish-Docker-Github-Action@2.10
         with:
-          name: iljun/github-actions
+          name: actions-sample/github-actions
           username: iljun
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
