@@ -15,5 +15,5 @@ jobs:
       - name: docker
         run: |
           docker login docker.pkg.github.com --username iljun -p {{secrets.GITHUB_TOKEN}}
-          docker build -t docker.pkg.github.com/iljun/actions-sample/github-actions:latest .
-          docker push docker.pkg.github.com/iljun/actions-sample/github-actions:latest
+          docker build . -t docker.pkg.github.com/iljun/actions-sample/app:latest
+          docker push docker.pkg.github.com/iljun/actions-sample/app:latest
