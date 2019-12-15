@@ -13,7 +13,7 @@ jobs:
       - name: gradle build
         run: ./gradlew build
       - name: docker login
-        run: docker login docker.pkg.github.com --username iljun
+        run: docker login docker.pkg.github.com --username iljun -p $githubToken
       - name: docker build
         run: docker build . -t docker.pkg.github.com/iljun/actions-sample/github-actions:$GITHUB_SHA
       - name: docker push
