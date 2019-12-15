@@ -8,13 +8,13 @@ jobs:
     name: github-actions-sample
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@master
-      - name: gradle build
-        uses: ./gradelw build
-      - name: docker build
-        uses: docker build . -t docker.pkg.github.com/$username/$reponame/github-actions:$GITHUB_SHA
-      - name: docker login
-        run: docker login docker.pkg.github.com -u $ -p $
-      - name: docker push
-        run: docker push docker.pkg.github.com/$username/$reponame/github-actions:$GITHUB_SHA
+    - name: checkout
+      uses: actions/checkout@master
+    - name: gradle build
+      uses: ./gradelw build
+    - name: docker build
+      uses: docker build . -t docker.pkg.github.com/$username/$reponame/github-actions:$GITHUB_SHA
+    - name: docker login
+      run: docker login docker.pkg.github.com -u $ -p $
+    - name: docker push
+      run: docker push docker.pkg.github.com/$username/$reponame/github-actions:$GITHUB_SHA
