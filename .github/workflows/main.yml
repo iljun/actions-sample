@@ -12,12 +12,8 @@ jobs:
         uses: actions/checkout@master
       - name: gradle build
         run: ./gradlew build
-      - name: docker build
-        run: docker build . -t docker.pkg.github.com/iljun/actions-sample/github-actions:0.0.1
-      - name: docker publish
-        uses: elgohr/Publish-Docker-Github-Action@2.10
-        with:
-          name: iljun/actions-sample
-          username: iljun
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
+      - name: docker
+        run: |
+          docker login docker.pkg.github.com --username iljun -p {{secrets.GITHUB_TOKEN}}
+          docker build -t docker.pkg.github.com/iljun/actions-sample/github-actions:latest .
+          docker push docker.pkg.github.com/iljun/actions-sample/github-actions:latest
