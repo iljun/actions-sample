@@ -17,7 +17,7 @@ jobs:
       - name: docker publish
         uses: elgohr/Publish-Docker-Github-Action@2.10
         with:
-          name: actions-sample/github-actions
+          name: iljun/actions-sample
           username: iljun
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
